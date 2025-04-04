@@ -1,0 +1,17 @@
+export const messagesConstant = {
+  USERS_FETCHED: 'Users fetched successfully',
+  USER_FETCHED: 'User fetched successfully',
+  ADD_USER_RESPONSE: 'User added successfully',
+  INVALID_ROLE_ID: 'Invalid role ID',
+  USER_ALREADY_EXISTS: 'User already exists',
+  USER_NOT_FOUND: 'User not found',
+  USER_DELETED: 'User deleted successfully',
+  USER_UPDATED: 'User updated successfully',
+  BLOGS_FETCHED: 'Blogs fetched successfully',
+  BLOG_FETCHED: 'Blog fetched successfully',
+  ADD_BLOG_RESPONSE: 'Blog added successfully',
+  BLOG_ALREADY_EXISTS: 'Blog already exists',
+  BLOG_NOT_FOUND: 'Blog not found',
+  BLOG_DELETED: 'Blog deleted successfully',
+  BLOG_UPDATED: 'Blog updated successfully',
+};

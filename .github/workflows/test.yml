@@ -1,0 +1,56 @@
+name: Test
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: 
+      - "staging"  # Triggers when there is a push to the "staging" branch
+      - "development"  # You may also want to trigger on "development" branch for testing purposes
+  pull_request:
+    branches: 
+      - "staging"  # Trigger on PRs to "staging" for integration testing
+      - "development"  # Trigger on PRs to "development" as well
+  workflow_dispatch:  # Allows you to manually trigger the workflow from the GitHub Actions tab
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks out the repository so the workflow can access it
+      - uses: actions/checkout@v4
+
+      # Set up Node.js environment for the backend (NestJS) and frontend (Angular)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Install dependencies for the project
+      - name: Install backend and frontend dependencies
+        run: |
+          npm install  # Install dependencies for both the frontend (Angular) and backend (NestJS)
+
+      # Run the backend tests (NestJS tests)
+      - name: Run backend tests
+        run: npm run test:backend
+
+      # Run frontend tests (Angular tests)
+      - name: Run frontend tests
+        run: npm run test:frontend
+
+      # Optionally, add additional integration tests for both services
+      - name: Run integration tests
+        run: npm run test:integration
+
+      # Optionally, if you have linting set up, you can add it here:
+      - name: Run linting
+        run: npm run lint
+
+      # Optionally, you could also run any e2e (end-to-end) tests if set up
+      - name: Run e2e tests (if applicable)
+        run: npm run test:e2e
