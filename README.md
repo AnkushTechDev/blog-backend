@@ -26,8 +26,8 @@ This Blog Backend Application is a comprehensive content management platform bui
 4. Clone the repository and navigate into the project folder.
 
     ```bash
-    git clone https://github.com/your-repo/blog-app.git
-    cd blog-app
+    git clone https://github.com/AnkushTechDev/blog-backend.git
+    cd blog-backend
     ```
 
 5. Install the dependencies:
